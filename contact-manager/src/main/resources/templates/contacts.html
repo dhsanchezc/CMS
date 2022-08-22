@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+<meta charset="UTF-8">
+<title>Contacts</title>
+</head>
+<body>
+	<a th:href="@{contactForm}" th:text="'Create contact'"></a>
+	<p th:if="${contacts.isEmpty}" th:text="'No contacts'"></p>
+	<table th:if="${!contacts.isEmpty()}">
+		<thead>
+			<tr>
+				<th>Name</th>
+				<th>Phone</th>
+				<th>Email</th>
+				<th>Birth date</th>
+				<th>Edit</th>
+				<th>Delete</th>
+			</tr>
+		</thead>
+		<tbody>
+			<tr th:each="contact:${contacts}">
+				<td th:text="${contact.name}"></td>
+				<td th:text="${contact.phone}"></td>
+				<td th:text="${contact.email}"></td>
+				<td th:text="${contact.birthDate}"></td>
+				<td><a th:href="@{contactForm/}+${contact.id}" th:text="Edit"></a></td>
+				<td><a th:href="@{/delete/}+${contact.id}" th:text="Delete"></a></td>
+			</tr>
+		</tbody>
+	</table>
+</body>
+</html>

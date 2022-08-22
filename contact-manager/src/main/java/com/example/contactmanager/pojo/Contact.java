@@ -11,25 +11,29 @@ import javax.persistence.Table;
 import javax.persistence.Temporal;
 import javax.persistence.TemporalType;
 
+import org.springframework.format.annotation.DateTimeFormat;
+
 @Entity
 @Table(name = "contacts")
 public class Contact {
-	
+
 	@Id
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	private Long id;
-	
+
 	private String name;
-	
+
 	private String phone;
-	
+
 	private String email;
-	
+
 	@Column(name = "birth_date")
 	@Temporal(TemporalType.DATE)
+	@DateTimeFormat(pattern = "yyyy-MM-dd")
 	private Date birthDate;
-	
+
 	@Column(name = "create_at")
+	@Temporal(TemporalType.DATE)
 	private Date createAt;
 
 	public Long getId() {
@@ -79,7 +83,5 @@ public class Contact {
 	public void setCreateAt(Date createAt) {
 		this.createAt = createAt;
 	}
-	
-	
 
 }
