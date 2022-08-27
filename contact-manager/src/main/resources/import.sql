@@ -1,1 +1,1 @@
-INSERT INTO contacts (name, phone, email, birth_date, create_at ) VALUES ('Diego', '3114799748', 'disan100@gmail.com', '1989-09-14', '2022-08-21');
+/*INSERT INTO contacts (name, phone, email, birth_date, create_at ) VALUES ('Diego', '3114799748', 'disan100@gmail.com', '1989-09-14', '2022-08-21');*/

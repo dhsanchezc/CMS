@@ -35,6 +35,10 @@ public class Contact {
 	@Column(name = "create_at")
 	@Temporal(TemporalType.DATE)
 	private Date createAt;
+	
+	public Contact() {
+		// TODO: createAt
+	}
 
 	public Long getId() {
 		return id;

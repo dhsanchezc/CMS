@@ -34,7 +34,7 @@ public class ContactController {
 	}
 
 	@PostMapping("contactForm")
-	public String checkContactForm(@Valid Contact contact, SessionStatus status) {
+	public String checkContactForm(@Valid Contact contact, SessionStatus status) {	
 		repository.save(contact);
 		status.setComplete();
 		return "redirect:/contacts";
