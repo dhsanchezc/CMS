@@ -1,7 +1,5 @@
 package com.example.contactmanager.controllers;
 
-import javax.validation.Valid;
-
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
@@ -22,7 +20,7 @@ public class ContactController {
 	@Autowired
 	ContactRepository repository;
 
-	@GetMapping("contacts")
+	@GetMapping({ "contacts", "/" })
 	public String readContacts(Model model) {
 		model.addAttribute("contacts", repository.findAll());
 		return "contacts";
@@ -33,8 +31,9 @@ public class ContactController {
 		return "contactForm";
 	}
 
+	// TODO: Validation
 	@PostMapping("contactForm")
-	public String checkContactForm(@Valid Contact contact, SessionStatus status) {	
+	public String checkContactForm(Contact contact, SessionStatus status) {
 		repository.save(contact);
 		status.setComplete();
 		return "redirect:/contacts";
